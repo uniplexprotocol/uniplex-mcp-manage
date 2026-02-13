@@ -16,6 +16,12 @@ export const tools: Tool[] = [
         gate_id: { type: 'string', description: 'The gate ID' },
       },
     },
+    annotations: {
+      title: 'Get Catalog',
+      readOnlyHint: true,
+      destructiveHint: false,
+      openWorldHint: true,
+    },
   },
   {
     name: 'create_catalog',
@@ -47,6 +53,13 @@ export const tools: Tool[] = [
         is_active: { type: 'boolean', description: 'Whether this catalog is active (default: true)' },
       },
     },
+    annotations: {
+      title: 'Create Catalog',
+      readOnlyHint: false,
+      destructiveHint: true,
+      idempotentHint: false,
+      openWorldHint: true,
+    },
   },
   {
     name: 'publish_catalog',
@@ -60,6 +73,13 @@ export const tools: Tool[] = [
         effective_at: { type: 'string', description: 'ISO timestamp when this version becomes effective' },
       },
     },
+    annotations: {
+      title: 'Publish Catalog',
+      readOnlyHint: false,
+      destructiveHint: true,
+      idempotentHint: false,
+      openWorldHint: true,
+    },
   },
   {
     name: 'list_catalog_versions',
@@ -70,6 +90,12 @@ export const tools: Tool[] = [
       properties: {
         gate_id: { type: 'string', description: 'The gate ID' },
       },
+    },
+    annotations: {
+      title: 'List Catalog Versions',
+      readOnlyHint: true,
+      destructiveHint: false,
+      openWorldHint: true,
     },
   },
   {
@@ -83,6 +109,12 @@ export const tools: Tool[] = [
         version: { type: 'number', description: 'Version number to retrieve' },
       },
     },
+    annotations: {
+      title: 'Get Catalog Version',
+      readOnlyHint: true,
+      destructiveHint: false,
+      openWorldHint: true,
+    },
   },
   {
     name: 'get_catalog_impact',
@@ -93,6 +125,12 @@ export const tools: Tool[] = [
       properties: {
         gate_id: { type: 'string', description: 'The gate ID' },
       },
+    },
+    annotations: {
+      title: 'Get Catalog Impact',
+      readOnlyHint: true,
+      destructiveHint: false,
+      openWorldHint: true,
     },
   },
 ];

@@ -13,6 +13,12 @@ export const tools: Tool[] = [
       type: 'object',
       properties: {},
     },
+    annotations: {
+      title: 'List API Keys',
+      readOnlyHint: true,
+      destructiveHint: false,
+      openWorldHint: true,
+    },
   },
   {
     name: 'create_api_key',
@@ -29,6 +35,13 @@ export const tools: Tool[] = [
         },
       },
     },
+    annotations: {
+      title: 'Create API Key',
+      readOnlyHint: false,
+      destructiveHint: false,
+      idempotentHint: false,
+      openWorldHint: true,
+    },
   },
   {
     name: 'revoke_api_key',
@@ -39,6 +52,13 @@ export const tools: Tool[] = [
       properties: {
         key_id: { type: 'string', description: 'The API key ID to revoke' },
       },
+    },
+    annotations: {
+      title: 'Revoke API Key',
+      readOnlyHint: false,
+      destructiveHint: true,
+      idempotentHint: true,
+      openWorldHint: true,
     },
   },
 ];

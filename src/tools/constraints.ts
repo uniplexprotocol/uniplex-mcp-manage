@@ -16,6 +16,12 @@ export const tools: Tool[] = [
         passport_id: { type: 'string', description: 'The passport ID' },
       },
     },
+    annotations: {
+      title: 'Get Constraints',
+      readOnlyHint: true,
+      destructiveHint: false,
+      openWorldHint: true,
+    },
   },
   {
     name: 'set_constraints',
@@ -31,6 +37,13 @@ export const tools: Tool[] = [
         },
       },
     },
+    annotations: {
+      title: 'Set Constraints',
+      readOnlyHint: false,
+      destructiveHint: true,
+      idempotentHint: true,
+      openWorldHint: true,
+    },
   },
   {
     name: 'list_constraint_types',
@@ -41,6 +54,12 @@ export const tools: Tool[] = [
         category: { type: 'string', description: 'Filter by category (e.g., "cost", "rate")' },
       },
     },
+    annotations: {
+      title: 'List Constraint Types',
+      readOnlyHint: true,
+      destructiveHint: false,
+      openWorldHint: true,
+    },
   },
   {
     name: 'list_constraint_templates',
@@ -50,6 +69,12 @@ export const tools: Tool[] = [
       properties: {
         category: { type: 'string', description: 'Filter by category' },
       },
+    },
+    annotations: {
+      title: 'List Constraint Templates',
+      readOnlyHint: true,
+      destructiveHint: false,
+      openWorldHint: true,
     },
   },
   {
@@ -62,6 +87,13 @@ export const tools: Tool[] = [
         passport_id: { type: 'string', description: 'The passport ID' },
         template_slug: { type: 'string', description: 'Template slug to apply (e.g., "conservative-agent")' },
       },
+    },
+    annotations: {
+      title: 'Apply Constraint Template',
+      readOnlyHint: false,
+      destructiveHint: true,
+      idempotentHint: false,
+      openWorldHint: true,
     },
   },
   {
@@ -77,6 +109,13 @@ export const tools: Tool[] = [
         category: { type: 'string', description: 'Optional category' },
         constraints: { type: 'object', description: 'Constraint definitions' },
       },
+    },
+    annotations: {
+      title: 'Create Constraint Template',
+      readOnlyHint: false,
+      destructiveHint: false,
+      idempotentHint: false,
+      openWorldHint: true,
     },
   },
 ];

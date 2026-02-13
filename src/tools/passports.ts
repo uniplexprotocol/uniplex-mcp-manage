@@ -17,7 +17,14 @@ export const tools: Tool[] = [
           type: 'string',
           description: 'The gate ID to list passports for',
         },
+        limit: { type: 'number', description: 'Max results to return (default: 100)' },
       },
+    },
+    annotations: {
+      title: 'List Passports',
+      readOnlyHint: true,
+      destructiveHint: false,
+      openWorldHint: true,
     },
   },
   {
@@ -30,6 +37,12 @@ export const tools: Tool[] = [
         gate_id: { type: 'string', description: 'The gate ID' },
         passport_id: { type: 'string', description: 'The passport ID' },
       },
+    },
+    annotations: {
+      title: 'Get Passport',
+      readOnlyHint: true,
+      destructiveHint: false,
+      openWorldHint: true,
     },
   },
   {
@@ -78,6 +91,13 @@ export const tools: Tool[] = [
         },
       },
     },
+    annotations: {
+      title: 'Issue Passport',
+      readOnlyHint: false,
+      destructiveHint: false,
+      idempotentHint: false,
+      openWorldHint: true,
+    },
   },
   {
     name: 'revoke_passport',
@@ -89,6 +109,13 @@ export const tools: Tool[] = [
         gate_id: { type: 'string', description: 'The gate ID' },
         passport_id: { type: 'string', description: 'The passport ID to revoke' },
       },
+    },
+    annotations: {
+      title: 'Revoke Passport',
+      readOnlyHint: false,
+      destructiveHint: true,
+      idempotentHint: true,
+      openWorldHint: true,
     },
   },
   {
@@ -108,13 +135,20 @@ export const tools: Tool[] = [
         },
       },
     },
+    annotations: {
+      title: 'Reissue Passport',
+      readOnlyHint: false,
+      destructiveHint: true,
+      idempotentHint: false,
+      openWorldHint: true,
+    },
   },
 ];
 
 export const handlers: Record<string, (api: ApiClient, args: Record<string, unknown>) => Promise<unknown>> = {
   list_passports: async (api, args) => {
-    const { gate_id } = args as { gate_id: string };
-    return api.get(`/api/gates/${gate_id}/passports`);
+    const { gate_id, limit } = args as { gate_id: string; limit?: number };
+    return api.get(`/api/gates/${gate_id}/passports`, { limit });
   },
 
   get_passport: async (api, args) => {

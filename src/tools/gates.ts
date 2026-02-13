@@ -13,6 +13,12 @@ export const tools: Tool[] = [
       type: 'object',
       properties: {},
     },
+    annotations: {
+      title: 'List Gates',
+      readOnlyHint: true,
+      destructiveHint: false,
+      openWorldHint: true,
+    },
   },
   {
     name: 'get_gate',
@@ -26,6 +32,12 @@ export const tools: Tool[] = [
           description: 'The full gate ID (e.g., "gate_acme-travel")',
         },
       },
+    },
+    annotations: {
+      title: 'Get Gate',
+      readOnlyHint: true,
+      destructiveHint: false,
+      openWorldHint: true,
     },
   },
   {
@@ -58,6 +70,13 @@ export const tools: Tool[] = [
         },
       },
     },
+    annotations: {
+      title: 'Create Gate',
+      readOnlyHint: false,
+      destructiveHint: false,
+      idempotentHint: false,
+      openWorldHint: true,
+    },
   },
   {
     name: 'update_gate',
@@ -76,6 +95,13 @@ export const tools: Tool[] = [
         allow_self_issued: { type: 'boolean', description: 'Allow self-issued passports (L1 only)' },
       },
     },
+    annotations: {
+      title: 'Update Gate',
+      readOnlyHint: false,
+      destructiveHint: true,
+      idempotentHint: true,
+      openWorldHint: true,
+    },
   },
   {
     name: 'delete_gate',
@@ -89,6 +115,13 @@ export const tools: Tool[] = [
           description: 'The full gate ID to delete',
         },
       },
+    },
+    annotations: {
+      title: 'Delete Gate',
+      readOnlyHint: false,
+      destructiveHint: true,
+      idempotentHint: true,
+      openWorldHint: true,
     },
   },
 ];

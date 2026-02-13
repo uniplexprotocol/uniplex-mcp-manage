@@ -39,6 +39,12 @@ export const tools: Tool[] = [
         },
       },
     },
+    annotations: {
+      title: 'List Attestations',
+      readOnlyHint: true,
+      destructiveHint: false,
+      openWorldHint: true,
+    },
   },
   {
     name: 'record_attestation',
@@ -98,6 +104,13 @@ export const tools: Tool[] = [
         },
       },
     },
+    annotations: {
+      title: 'Record Attestation',
+      readOnlyHint: false,
+      destructiveHint: false,
+      idempotentHint: false,
+      openWorldHint: true,
+    },
   },
 ];
 
@@ -111,14 +124,14 @@ export const handlers: Record<string, (api: ApiClient, args: Record<string, unkn
       since?: string;
       limit?: number;
     };
-    
+
     const params = new URLSearchParams();
     if (passport_id) params.set('passport_id', passport_id);
     if (agent_id) params.set('agent_id', agent_id);
     if (permission) params.set('permission', permission);
     if (since) params.set('since', since);
     if (limit) params.set('limit', String(limit));
-    
+
     const query = params.toString();
     return api.get(`/api/gates/${gate_id}/attestations${query ? `?${query}` : ''}`);
   },

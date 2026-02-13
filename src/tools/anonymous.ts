@@ -16,6 +16,12 @@ export const tools: Tool[] = [
         gate_id: { type: 'string', description: 'The gate ID' },
       },
     },
+    annotations: {
+      title: 'Get Anonymous Policy',
+      readOnlyHint: true,
+      destructiveHint: false,
+      openWorldHint: true,
+    },
   },
   {
     name: 'set_anonymous_policy',
@@ -43,6 +49,13 @@ export const tools: Tool[] = [
         upgrade_url: { type: 'string', description: 'URL for upgrading to authenticated access' },
       },
     },
+    annotations: {
+      title: 'Set Anonymous Policy',
+      readOnlyHint: false,
+      destructiveHint: true,
+      idempotentHint: true,
+      openWorldHint: true,
+    },
   },
   {
     name: 'get_anonymous_log',
@@ -52,7 +65,14 @@ export const tools: Tool[] = [
       required: ['gate_id'],
       properties: {
         gate_id: { type: 'string', description: 'The gate ID' },
+        limit: { type: 'number', description: 'Max results to return (default: 100)' },
       },
+    },
+    annotations: {
+      title: 'Get Anonymous Log',
+      readOnlyHint: true,
+      destructiveHint: false,
+      openWorldHint: true,
     },
   },
 ];
@@ -69,7 +89,7 @@ export const handlers: Record<string, (api: ApiClient, args: Record<string, unkn
   },
 
   get_anonymous_log: async (api, args) => {
-    const { gate_id } = args as { gate_id: string };
-    return api.get(`/api/gates/${gate_id}/anonymous-log`);
+    const { gate_id, limit } = args as { gate_id: string; limit?: number };
+    return api.get(`/api/gates/${gate_id}/anonymous-log`, { limit });
   },
 };

@@ -16,6 +16,12 @@ export const tools: Tool[] = [
         passport_id: { type: 'string', description: 'The passport ID' },
       },
     },
+    annotations: {
+      title: 'Get Cumulative State',
+      readOnlyHint: true,
+      destructiveHint: false,
+      openWorldHint: true,
+    },
   },
   {
     name: 'reset_cumulative_state',
@@ -27,6 +33,13 @@ export const tools: Tool[] = [
         passport_id: { type: 'string', description: 'The passport ID' },
         window_type: { type: 'string', description: 'Window type to reset (e.g., "daily", "hourly")' },
       },
+    },
+    annotations: {
+      title: 'Reset Cumulative State',
+      readOnlyHint: false,
+      destructiveHint: true,
+      idempotentHint: false,
+      openWorldHint: true,
     },
   },
 ];

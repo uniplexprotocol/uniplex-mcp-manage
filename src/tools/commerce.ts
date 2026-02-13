@@ -23,6 +23,12 @@ export const tools: Tool[] = [
         offset: { type: 'number', description: 'Pagination offset' },
       },
     },
+    annotations: {
+      title: 'Discover Services',
+      readOnlyHint: true,
+      destructiveHint: false,
+      openWorldHint: true,
+    },
   },
   {
     name: 'issue_consumption_attestation',
@@ -42,6 +48,13 @@ export const tools: Tool[] = [
         metadata: { type: 'object', description: 'Optional metadata' },
       },
     },
+    annotations: {
+      title: 'Issue Consumption Attestation',
+      readOnlyHint: false,
+      destructiveHint: false,
+      idempotentHint: false,
+      openWorldHint: true,
+    },
   },
   {
     name: 'generate_settlement',
@@ -56,6 +69,13 @@ export const tools: Tool[] = [
         period_end: { type: 'string', description: 'Period end date (YYYY-MM-DD)' },
         agent_id: { type: 'string', description: 'Optional: settle for a specific agent' },
       },
+    },
+    annotations: {
+      title: 'Generate Settlement',
+      readOnlyHint: false,
+      destructiveHint: false,
+      idempotentHint: false,
+      openWorldHint: true,
     },
   },
   {
@@ -74,6 +94,12 @@ export const tools: Tool[] = [
         offset: { type: 'number', description: 'Pagination offset' },
       },
     },
+    annotations: {
+      title: 'List Settlements',
+      readOnlyHint: true,
+      destructiveHint: false,
+      openWorldHint: true,
+    },
   },
   {
     name: 'get_settlement',
@@ -84,6 +110,12 @@ export const tools: Tool[] = [
       properties: {
         settlement_id: { type: 'string', description: 'The settlement ID' },
       },
+    },
+    annotations: {
+      title: 'Get Settlement',
+      readOnlyHint: true,
+      destructiveHint: false,
+      openWorldHint: true,
     },
   },
   {
@@ -96,6 +128,13 @@ export const tools: Tool[] = [
         settlement_id: { type: 'string', description: 'The settlement ID' },
         status: { type: 'string', description: 'New status (e.g., "invoiced", "paid", "disputed")' },
       },
+    },
+    annotations: {
+      title: 'Update Settlement Status',
+      readOnlyHint: false,
+      destructiveHint: true,
+      idempotentHint: true,
+      openWorldHint: true,
     },
   },
   {
@@ -110,6 +149,12 @@ export const tools: Tool[] = [
         period_end: { type: 'string', description: 'Period end (YYYY-MM-DD)' },
         permission_key: { type: 'string', description: 'Filter by permission key' },
       },
+    },
+    annotations: {
+      title: 'Get SLA Compliance',
+      readOnlyHint: true,
+      destructiveHint: false,
+      openWorldHint: true,
     },
   },
 ];

@@ -20,6 +20,13 @@ export const tools: Tool[] = [
         metadata: { type: 'object', description: 'Optional metadata' },
       },
     },
+    annotations: {
+      title: 'Enforce Action',
+      readOnlyHint: false,
+      destructiveHint: true,
+      idempotentHint: false,
+      openWorldHint: true,
+    },
   },
   {
     name: 'list_enforcement_attestations',
@@ -33,6 +40,12 @@ export const tools: Tool[] = [
         limit: { type: 'number', description: 'Max results to return' },
       },
     },
+    annotations: {
+      title: 'List Enforcement Attestations',
+      readOnlyHint: true,
+      destructiveHint: false,
+      openWorldHint: true,
+    },
   },
   {
     name: 'get_enforcement_attestation',
@@ -44,6 +57,12 @@ export const tools: Tool[] = [
         attestation_id: { type: 'string', description: 'The enforcement attestation ID' },
       },
     },
+    annotations: {
+      title: 'Get Enforcement Attestation',
+      readOnlyHint: true,
+      destructiveHint: false,
+      openWorldHint: true,
+    },
   },
   {
     name: 'verify_enforcement_attestation',
@@ -54,6 +73,13 @@ export const tools: Tool[] = [
       properties: {
         attestation_id: { type: 'string', description: 'The enforcement attestation ID' },
       },
+    },
+    annotations: {
+      title: 'Verify Enforcement Attestation',
+      readOnlyHint: true,
+      destructiveHint: false,
+      idempotentHint: true,
+      openWorldHint: true,
     },
   },
 ];

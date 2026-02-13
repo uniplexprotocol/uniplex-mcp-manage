@@ -19,6 +19,13 @@ export const tools: Tool[] = [
         target: { type: 'string', description: 'Optional target resource' },
       },
     },
+    annotations: {
+      title: 'Check Gate',
+      readOnlyHint: true,
+      destructiveHint: false,
+      idempotentHint: true,
+      openWorldHint: true,
+    },
   },
   {
     name: 'authorize_dry_run',
@@ -32,6 +39,13 @@ export const tools: Tool[] = [
         requested_permission: { type: 'string', description: 'Permission key to test' },
         requested_constraints: { type: 'object', description: 'Optional constraints to include in simulation' },
       },
+    },
+    annotations: {
+      title: 'Authorize Dry Run',
+      readOnlyHint: true,
+      destructiveHint: false,
+      idempotentHint: true,
+      openWorldHint: true,
     },
   },
 ];
